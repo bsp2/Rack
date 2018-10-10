@@ -1,0 +1,9 @@
+SLUG=Southpole
+
+include ../../../makefile_plugin_pre
+
+CPPFLAGS+= -DTEST -Ieurorack/ -Dstmlib=stmlib_southpole
+
+include make.objects
+
+include ../../../makefile_plugin_post

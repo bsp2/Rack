@@ -1,0 +1,13 @@
+SLUG=Southpole-parasites
+
+include ../../../makefile_plugin_pre
+
+EXTRAFLAGS+= \
+	-DTEST \
+	-DPARASITES \
+	-I./parasites -Ieurorack/ \
+	-Dstmlib=stmlib_parasites
+
+include make.objects
+
+include ../../../makefile_plugin_post

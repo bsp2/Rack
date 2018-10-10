@@ -1,0 +1,9 @@
+SLUG=Bogaudio
+
+include ../../../makefile_plugin_pre
+
+EXTRAFLAGS+= -Isrc/dsp/
+
+include make.objects
+
+include ../../../makefile_plugin_post

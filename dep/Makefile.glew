@@ -1,0 +1,18 @@
+
+ifeq ($(OS),Windows_NT)
+	include yac/install_msvc.mk
+	TARGET_BASENAME=glew
+	EXTRAFLAGS= -DGLEW_NO_GLU -DGLEW_BUILD -Iglew/include/
+	EXTRALIBS=
+	PLAF_OBJ=
+	include glew.objects
+	include yac/staticlib_msvc.mk
+else
+	include yac/install.mk
+	TARGET_BASENAME=glew
+	EXTRAFLAGS= -DGLEW_NO_GLU -DGLEW_BUILD -Iglew/include/
+	EXTRALIBS=
+	PLAF_OBJ=
+	include glew.objects
+	include yac/staticlib.mk
+endif

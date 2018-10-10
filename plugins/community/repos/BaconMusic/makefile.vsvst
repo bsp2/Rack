@@ -1,0 +1,9 @@
+SLUG=BaconMusic
+
+include ../../../makefile_plugin_pre
+
+EXTRAFLAGS+= -DBUILD_SORTACHORUS
+
+include make.objects
+
+include ../../../makefile_plugin_post

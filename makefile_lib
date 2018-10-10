@@ -1,0 +1,11 @@
+include dep/yac/install.mk
+
+TARGET_BASENAME=Rack
+
+EXTRAFLAGS= -DVERSION=0.6.1 -DARCH_LIN -D_USE_MATH_DEFINES -DRACK_HOST -DUSE_VST2 -Iinclude/ -Idep/nanovg/src -Idep/nanosvg/src -Idep/oui-blendish -Idep/rtaudio -Idep/osdialog -Idep/pffft -Idep/lglw -Idep/
+EXTRALIBS= dep/jansson.a
+PLAF_OBJ=
+
+include make_lin.objects
+ALL_OBJ=$(LIB_OBJ) $(LIB_OBJ_LIN)
+include dep/yac/staticlib.mk

@@ -1,0 +1,9 @@
+SLUG=JE
+
+include ../../../makefile_plugin_pre
+
+CPPFLAGS+= -Iext/LambertW/
+
+include make.objects
+
+include ../../../makefile_plugin_post

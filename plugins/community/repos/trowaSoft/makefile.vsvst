@@ -1,0 +1,8 @@
+SLUG=trowaSoft
+
+include ../../../makefile_plugin_pre
+
+include make.objects
+ALL_OBJ=$(RACK_OBJ)
+
+include ../../../makefile_plugin_post

@@ -1,0 +1,19 @@
+
+ifeq ($(OS),Windows_NT)
+	include yac/install_msvc.mk
+	TARGET_BASENAME=libspeexdsp
+	EXTRAFLAGS= -DWINVER=0x0501 -D_GLFW_USE_CONFIG_H -D_USE_SSE -DWIN32 -DNDEBUG -D_WINDOWS -D_USRDLL -DHAVE_CONFIG_H -Ispeexdsp/include -Ispeexdsp/ -Ispeexdsp/win32
+	EXTRALIBS=
+	PLAF_OBJ=
+	include speexdsp.objects
+	include yac/staticlib_msvc.mk
+else
+	include yac/install.mk
+	TARGET_BASENAME=libspeexdsp
+	EXTRAFLAGS= -D_GLFW_USE_CONFIG_H -D_USE_SSE -DNDEBUG -DHAVE_CONFIG_H -Ispeexdsp/include -Ispeexdsp/
+	EXTRALIBS=
+	PLAF_OBJ=
+	include speexdsp.objects
+	include yac/staticlib.mk
+endif
+

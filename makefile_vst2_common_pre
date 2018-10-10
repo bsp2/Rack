@@ -1,0 +1,4 @@
+EXTRAFLAGS+= -DARCH_LIN -DVST2_REPARENT_WINDOW_HACK 
+EXTRAFLAGS+= -I/home/cameron/src/VST_SDK/VST2_SDK/pluginterfaces/vst2.x/
+EXTRALIBS= dep/glew.a dep/libspeexdsp.a dep/jansson.a
+plugin_lib = $(PLUGIN_DIR)/$(1)/$(1).a

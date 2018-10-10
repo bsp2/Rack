@@ -1,0 +1,12 @@
+ALL_OBJ = \
+	jansson/src/dump.o \
+	jansson/src/error.o \
+	jansson/src/hashtable.o \
+	jansson/src/hashtable_seed.o \
+	jansson/src/load.o \
+	jansson/src/memory.o \
+	jansson/src/pack_unpack.o \
+	jansson/src/strbuffer.o \
+	jansson/src/strconv.o \
+	jansson/src/utf.o \
+	jansson/src/value.o

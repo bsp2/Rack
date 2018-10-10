@@ -1,0 +1,12 @@
+SLUG=bsp
+
+include ../../../makefile_shared_plugin_pre
+
+include make.objects
+
+define BIN_POST_FXN
+	cp -f $(SLUG).so ../../../../vst2_bin/plugins/$(SLUG)/plugin.so.fx
+	cp -f $(SLUG).so ../../../../vst2_bin/plugins/$(SLUG)/plugin.so.instr
+endef
+
+include ../../../makefile_shared_plugin_post

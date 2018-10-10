@@ -1,0 +1,7 @@
+SLUG=Fundamental
+
+include ../../../makefile_plugin_pre
+
+include make.objects
+
+include ../../../makefile_plugin_post

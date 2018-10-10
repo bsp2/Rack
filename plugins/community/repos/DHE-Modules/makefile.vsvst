@@ -1,0 +1,9 @@
+SLUG=DHE-Modules
+
+include ../../../makefile_plugin_pre
+
+EXTRAFLAGS+= -Isrc/
+
+include make.objects
+
+include ../../../makefile_plugin_post

@@ -1,0 +1,4 @@
+PLUGIN_DIR=plugins/community/repos/
+include dep/yac/install.mk
+TARGET_BASENAME=veeseevstrack_instr
+include makefile_vst2_common

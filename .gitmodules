@@ -1,18 +1,30 @@
-[submodule "ext/nanovg"]
+[submodule "dep/nanovg"]
 	path = dep/nanovg
 	url = https://github.com/memononen/nanovg.git
-[submodule "ext/nanosvg"]
-	path = dep/nanosvg
-	url = https://github.com/memononen/nanosvg.git
-[submodule "ext/osdialog"]
+[submodule "dep/osdialog"]
 	path = dep/osdialog
 	url = https://github.com/AndrewBelt/osdialog.git
-[submodule "ext/oui-blendish"]
+[submodule "dep/glew"]
+	path = dep/glew
+	url = https://github.com/nigels-com/glew.git
+[submodule "dep/jansson"]
+	path = dep/jansson
+	url = https://github.com/akheron/jansson
+[submodule "dep/speexdsp"]
+	path = dep/speexdsp
+	url = https://github.com/xiph/speexdsp
+[submodule "dep/pffft"]
+	path = dep/pffft
+	url = https://github.com/dotnetrt/pffft
+[submodule "dep/nanosvg"]
+	path = dep/nanosvg
+	url = https://github.com/memononen/nanosvg
+[submodule "dep/oui-blendish"]
 	path = dep/oui-blendish
 	url = https://github.com/AndrewBelt/oui-blendish.git
-[submodule "dep/glfw"]
-	path = dep/glfw
-	url = https://github.com/glfw/glfw.git
 [submodule "dep/rtaudio"]
 	path = dep/rtaudio
 	url = https://github.com/thestk/rtaudio.git
+[submodule "dep/lglw"]
+	path = dep/lglw
+	url = https://github.com/bsp2/lglw

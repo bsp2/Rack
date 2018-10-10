@@ -1,0 +1,11 @@
+include dep/yac/install.mk
+
+TARGET_BASENAME=Rack_shared
+
+EXTRAFLAGS= -DVERSION=0.6.1 -DARCH_LIN -D_USE_MATH_DEFINES -DRACK_PLUGIN -DRACK_PLUGIN_SHARED -DRACK_PLUGIN_SHARED_LIB_BUILD -DUSE_VST2 -DVST2_REPARENT_WINDOW_HACK -Iinclude/ -Idep/nanovg/src -Idep/nanosvg/src -Idep/oui-blendish -Idep/rtaudio -Idep/osdialog -Idep/pffft -Idep/lglw -Idep/
+EXTRALIBS= dep/jansson.a dep/glew.a
+PLAF_OBJ=
+
+include make_lin.objects
+ALL_OBJ=$(SHARED_LIB_OBJ) $(LIB_OBJ_LIN)
+include dep/yac/staticlib.mk

@@ -1,0 +1,7 @@
+EXTRAFLAGS+= -DVERSION=0.6.1 -D_USE_MATH_DEFINES -Iinclude/ -Idep/nanovg/src -Idep/nanosvg/src -Idep/oui-blendish -Idep/rtaudio -Idep/osdialog -Idep/pffft -Idep/ -DUSE_VST2
+include makefile_vst2_common_pre
+include makefile_vst2_common_staticlibs
+PLAF_OBJ=
+include make_lin.objects
+ALL_OBJ= $(MAIN_OBJ) 
+include makefile_vst2_common_post

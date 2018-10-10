@@ -1,0 +1,5 @@
+include ../../../../dep/yac/install.mk
+TARGET_BASENAME=$(SLUG)
+EXTRAFLAGS+= -DVERSION=0.6.1 -D_USE_MATH_DEFINES -DUSE_VST2 -DRACK_PLUGIN -DRACK_PLUGIN_SHARED -DSLUG=$(SLUG) -I../../../../include/ -I../../../../dep/include -Idep/include -DARCH_LIN 
+EXTRALIBS+= ../../../Rack_shared.a
+PLAF_OBJ+= 

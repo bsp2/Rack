@@ -1,0 +1,6 @@
+include ../../../../dep/yac/install.mk
+TARGET_BASENAME=$(SLUG)
+EXTRAFLAGS+= -DVERSION=0.6.1 -D_USE_MATH_DEFINES -DUSE_VST2 -DRACK_PLUGIN -DSLUG=$(SLUG) -I../../../../include/ -I../../../../dep/include -I../../../../dep/ -I../../../../dep/nanovg/src -I../../../../dep/nanosvg/src -I../../../../dep/oui-blendish -I../../../../dep/pffft -I../../../../dep/osdialog -Idep/include -DARCH_LIN 
+#  -I../../../../dep/rtaudio   -I../../../../dep/lglw
+EXTRALIBS+=
+PLAF_OBJ+= 

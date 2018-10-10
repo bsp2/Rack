@@ -1,0 +1,13 @@
+SLUG=Autodafe
+
+include ../../../makefile_plugin_pre
+
+CPPFLAGS+= -Idep/ -Idep/stk/include/
+
+include make.objects
+
+define BIN_POST_FXN
+	cp -f $(SLUG).so ../../../../vst2_bin/plugins/$(SLUG)/plugin.so
+endef
+
+include ../../../makefile_plugin_post

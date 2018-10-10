@@ -1,0 +1,9 @@
+SLUG=NauModular
+
+include ../../../makefile_plugin_pre
+
+EXTRAFLAGS += -DARCH_LIN
+
+include make.objects
+
+include ../../../makefile_plugin_post

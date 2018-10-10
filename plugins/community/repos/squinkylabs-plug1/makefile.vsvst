@@ -1,0 +1,9 @@
+SLUG=squinkylabs-plug1
+
+include ../../../makefile_plugin_pre
+
+EXTRAFLAGS += -Icomposites/ -Idsp/utils/ -Idsp/third-party/kiss_fft130/ -Idsp/third-party/kiss_fft130/tools/ -Isqsrc/util/ -Isqsrc/thread/ -Idsp/third-party/falco/ -Idsp/generators/ -Idsp/filters/ -Idsp/fft/ -Isqsrc/clock/
+
+include make.objects
+
+include ../../../makefile_plugin_post
