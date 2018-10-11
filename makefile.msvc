@@ -34,3 +34,14 @@ clean:
 	make -f makefile_vst_instr.msvc clean
 	make -f makefile_vst_effect.msvc clean
 
+.PHONY: dep
+dep:
+	make -C dep/ -f makefile.msvc -j $(NUM_JOBS) bin
+
+.PHONY: dep.install
+dep.install:
+	make -C dep/ -f makefile.msvc install
+
+.PHONY: dep.clean
+dep.clean:
+	make -C dep/ -f makefile.msvc clean
