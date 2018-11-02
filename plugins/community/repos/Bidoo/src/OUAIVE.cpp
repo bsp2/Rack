@@ -2,7 +2,7 @@
 #include "dsp/digital.hpp"
 #include "BidooComponents.hpp"
 #include "osdialog.h"
-#define DR_WAV_IMPLEMENTATION
+// #define DR_WAV_IMPLEMENTATION
 #include "dep/dr_wav/dr_wav.h"
 #include <vector>
 #include "cmath"

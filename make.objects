@@ -2,7 +2,8 @@ COMMON_DEP_OBJ= \
 	dep/jpommier-pffft-29e4f76ac53b/fftpack.o \
 	dep/jpommier-pffft-29e4f76ac53b/pffft.o \
 	dep/nanovg/src/nanovg.o \
-	dep/osdialog/osdialog.o
+	dep/osdialog/osdialog.o \
+	dep/include/dr_wav.o
 
 COMMON_OBJ= \
 	src/app/app.o \

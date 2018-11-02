@@ -6,8 +6,8 @@ namespace rack_plugin_cf {
 struct STEREO : Module {
 	enum ParamIds {
 		PAN_PARAM,
-      GAIN_PARAM,
-      SOLO_PARAM,
+	        GAIN_PARAM,
+	        SOLO_PARAM,
 		ON_PARAM,
 		NUM_PARAMS
 	};
@@ -40,23 +40,23 @@ struct STEREO : Module {
 	};
 
 
-   float SIGNAL1 = 0.0 ;
-   float SIGNAL2 = 0.0 ;
-   bool ON_STATE = false ;
-   bool SOLO_STATE = false ;
-   bool soloed = false;
-   int lightState[11] = {};
-   int cligno =0;
-   int retard =0;
-   int retard2 =0;
-   SchmittTrigger onTrigger;
-   SchmittTrigger oninTrigger;
-   SchmittTrigger soloTrigger;
-   SchmittTrigger soloinTrigger;
-   float or_gain ;
-   int or_affi ;
-   float orp_gain ;
-   int orp_affi ;
+float SIGNAL1 = 0.0 ;
+float SIGNAL2 = 0.0 ;
+bool ON_STATE = false ;
+bool SOLO_STATE = false ;
+bool soloed = false;
+int lightState[11] = {};
+int cligno =0;
+int retard =0;
+int retard2 =0;
+SchmittTrigger onTrigger;
+SchmittTrigger oninTrigger;
+SchmittTrigger soloTrigger;
+SchmittTrigger soloinTrigger;
+float or_gain ;
+int or_affi ;
+float orp_gain ;
+int orp_affi ;
 
 	STEREO() : Module(NUM_PARAMS, NUM_INPUTS, NUM_OUTPUTS, NUM_LIGHTS) {onReset();}
 	void step() override;
@@ -117,17 +117,13 @@ void STEREO::step() {
 	if (soloTrigger.process(params[SOLO_PARAM].value)+soloinTrigger.process(inputs[SOLOT_INPUT].value))
 			{if (SOLO_STATE == 0) {SOLO_STATE = 1;} else {SOLO_STATE = 0;soloed=0;}}
 
-// // #define and &&
-	if ((!SOLO_STATE && !soloed) && (retard > 0)) retard = 0; else if (retard < 1000) retard = retard + 1;
-// // #undef and
+	if ((!SOLO_STATE and !soloed) and (retard > 0)) retard = 0; else if (retard < 1000) retard = retard + 1;
 
 
 	outputs[EXTSOLO_OUTPUT].value=round(10*retard/1000);
 
 	if (!SOLO_STATE) {SIGNAL1 = SIGNAL1 * ON_STATE ; SIGNAL2 = SIGNAL2 * ON_STATE ;}
-// // #define and &&
-	if (soloed && !SOLO_STATE) {SIGNAL1 = 0; SIGNAL2 = 0;}
-// // #undef and
+	if (soloed and !SOLO_STATE) {SIGNAL1 = 0; SIGNAL2 = 0;}
 	
 
 	if (!inputs[PAN_INPUT].active) {
