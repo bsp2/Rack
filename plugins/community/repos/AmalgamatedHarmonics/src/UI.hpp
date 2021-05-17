@@ -27,6 +27,10 @@ struct AHModule : Module {
 		rho = engineGetSampleRate();
 	}
 
+   ~AHModule() {
+      printf("xxx ~AHModule()\n"); fflush(stdout);
+   }
+
 	void onSampleRateChange() override { 
 		delta = engineGetSampleTime();
 		rho = engineGetSampleRate();

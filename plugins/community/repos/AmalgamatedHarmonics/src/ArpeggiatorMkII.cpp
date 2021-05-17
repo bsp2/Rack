@@ -17,6 +17,13 @@ struct Pattern {
 		
 	int MAJOR[7] = {0,2,4,5,7,9,11};
 	int MINOR[7] = {0,2,3,5,7,8,10};
+
+   Pattern() {
+   }
+
+   virtual ~Pattern() {
+      printf("xxx ~Pattern\n"); fflush(stdout);
+   }
 		
 	virtual std::string getName() = 0;
 
@@ -51,6 +58,13 @@ struct Pattern {
 
 struct UpPattern : Pattern {
 
+   UpPattern() {
+   }
+
+   ~UpPattern() {
+      printf("xxx ~UpPattern\n"); fflush(stdout);
+   }
+
 	std::string getName() override {
 		return "Up";
 	};
@@ -78,6 +92,13 @@ struct UpPattern : Pattern {
 };
 
 struct DownPattern : Pattern {
+
+   DownPattern() {
+   }
+
+   ~DownPattern() {
+      printf("xxx ~DownPattern\n"); fflush(stdout);
+   }
 
 	int currSt = 0;
 	
@@ -115,6 +136,13 @@ struct UpDownPattern : Pattern {
 
 	int mag = 0;
 	int end = 0;
+
+   UpDownPattern() {
+   }
+
+   ~UpDownPattern() {
+      printf("xxx ~UpDownPattern\n"); fflush(stdout);
+   }
 	
 	std::string getName() override {
 		return "UpDown";
@@ -157,6 +185,13 @@ struct DownUpPattern : Pattern {
 
 	int mag = 0;
 	int end = 0;
+
+   DownUpPattern() {
+   }
+
+   ~DownUpPattern() {
+      printf("xxx ~DownUpPattern\n"); fflush(stdout);
+   }
 	
 	std::string getName() override {
 		return "DownUp";
@@ -197,7 +232,15 @@ struct DownUpPattern : Pattern {
 
 struct NotePattern : Pattern {
 
-	std::vector<int> notes;
+	std::vector<int> *notes;
+
+   NotePattern() {
+      notes = new std::vector<int>();
+   }
+
+   ~NotePattern() {
+      printf("xxx ~NotePattern\n"); fflush(stdout);
+   }
 	
 	void initialise(int l, int sc, int tr, bool fr) override {
 		Pattern::initialise(l,sc,tr,fr);
@@ -208,11 +251,11 @@ struct NotePattern : Pattern {
 	}
 
 	bool isPatternFinished() override {
-		return (count == (int)notes.size());
+		return (count == (int)notes->size());
 	}
 	
 	int getNote(int i) {
-		return notes[i];
+		return (*notes)[i];
 	}
 	
 };
@@ -224,25 +267,28 @@ struct RezPattern : NotePattern {
 	};	
 
 	RezPattern() {
-		notes.clear();
-		notes.push_back(0);
-		notes.push_back(12);
-		notes.push_back(0);
-		notes.push_back(0);
-		notes.push_back(8);
-		notes.push_back(0);
-		notes.push_back(0);
-		notes.push_back(3);		
-		notes.push_back(0);
-		notes.push_back(0);
-		notes.push_back(3);
-		notes.push_back(0);
-		notes.push_back(3);
-		notes.push_back(0);
-		notes.push_back(8);
-		notes.push_back(0);
+		notes->clear();
+		notes->push_back(0);
+		notes->push_back(12);
+		notes->push_back(0);
+		notes->push_back(0);
+		notes->push_back(8);
+		notes->push_back(0);
+		notes->push_back(0);
+		notes->push_back(3);		
+		notes->push_back(0);
+		notes->push_back(0);
+		notes->push_back(3);
+		notes->push_back(0);
+		notes->push_back(3);
+		notes->push_back(0);
+		notes->push_back(8);
+		notes->push_back(0);
 	}
-	
+
+   ~RezPattern() {
+      printf("xxx ~RezPattern\n"); fflush(stdout);
+   }
 	
 };
 
@@ -253,21 +299,31 @@ struct OnTheRunPattern : NotePattern {
 	};	
 
 	OnTheRunPattern() {
-		notes.clear();
-		notes.push_back(0);
-		notes.push_back(4);
-		notes.push_back(6);
-		notes.push_back(4);
-		notes.push_back(9);
-		notes.push_back(11);
-		notes.push_back(13);		
-		notes.push_back(11);		
+		notes->clear();
+		notes->push_back(0);
+		notes->push_back(4);
+		notes->push_back(6);
+		notes->push_back(4);
+		notes->push_back(9);
+		notes->push_back(11);
+		notes->push_back(13);		
+		notes->push_back(11);		
 	}
+
+   ~OnTheRunPattern() {
+   }
 	
 };
 
 
 struct Arpeggio {
+
+   Arpeggio() {
+   }
+
+   virtual ~Arpeggio() {
+      printf("xxx ~Arpeggio\n"); fflush(stdout);
+   }
 
 	virtual std::string getName() = 0;
 
@@ -285,6 +341,13 @@ struct RightArp : Arpeggio {
 
 	int index = 0;
 	int nPitches = 0;
+
+   RightArp() {
+   }
+
+   ~RightArp() {
+      printf("xxx ~RightArp\n"); fflush(stdout);
+   }
 
 	std::string getName() override {
 		return "Right";
@@ -314,6 +377,13 @@ struct LeftArp : Arpeggio {
 	int index = 0;
 	int nPitches = 0;
 
+   LeftArp() {
+   }
+
+   ~LeftArp() {
+      printf("xxx ~LeftArp\n"); fflush(stdout);
+   }
+
 	std::string getName() override {
 		return "Left";
 	};
@@ -342,6 +412,13 @@ struct RightLeftArp : Arpeggio {
 	int currSt = 0;
 	int mag = 0;
 	int end = 0;
+
+   RightLeftArp() {
+   }
+
+   ~RightLeftArp() {
+      printf("xxx ~RightLeftArp\n"); fflush(stdout);
+   }
 	
 	std::string getName() override {
 		return "RightLeft";
@@ -379,6 +456,13 @@ struct LeftRightArp : Arpeggio {
 	int currSt = 0;
 	int mag = 0;
 	int end = 0;
+
+   LeftRightArp() {
+   }
+
+   ~LeftRightArp() {
+      printf("xxx ~LeftRightArp\n"); fflush(stdout);
+   }
 	
 	std::string getName() override {
 		return "LeftRight";
@@ -457,6 +541,11 @@ struct Arpeggiator2 : AHModule {
 
 	}
 
+   ~Arpeggiator2() {
+      printf("xxx ~Arpeggiator2()\n");
+      fflush(stdout);
+   }
+
 	void step() override;
 	
 	void reset() override {
@@ -530,28 +619,28 @@ struct Arpeggiator2 : AHModule {
 	
 	float semiTone = 1.0 / 12.0;
 
-	UpPattern		patt_up; 
-	DownPattern 	patt_down; 
-	UpDownPattern 	patt_updown;
-	DownUpPattern 	patt_downup;
-	RezPattern 		patt_rez;
-	OnTheRunPattern	patt_ontherun;
+	UpPattern		 patt_up; 
+	DownPattern 	 patt_down; 
+	UpDownPattern 	 patt_updown;
+	DownUpPattern 	 patt_downup;
+	RezPattern 		 patt_rez;
+	OnTheRunPattern patt_ontherun;
 
-	UpPattern		ui_patt_up; 
-	DownPattern 	ui_patt_down; 
-	UpDownPattern 	ui_patt_updown;
-	DownUpPattern 	ui_patt_downup;
-	RezPattern 		ui_patt_rez;
-	OnTheRunPattern	ui_patt_ontherun;
+	UpPattern		 ui_patt_up; 
+	DownPattern 	 ui_patt_down; 
+	UpDownPattern 	 ui_patt_updown;
+	DownUpPattern 	 ui_patt_downup;
+	RezPattern 		 ui_patt_rez;
+	OnTheRunPattern ui_patt_ontherun;
 
 	
 	RightArp 		arp_right;
-	LeftArp 		arp_left;
+	LeftArp 		   arp_left;
 	RightLeftArp 	arp_rightleft;
 	LeftRightArp 	arp_leftright;
 
 	RightArp 		ui_arp_right;
-	LeftArp 		ui_arp_left;
+	LeftArp 		   ui_arp_left;
 	RightLeftArp 	ui_arp_rightleft;
 	LeftRightArp 	ui_arp_leftright;
 
@@ -570,7 +659,6 @@ struct Arpeggiator2 : AHModule {
 
 
 void Arpeggiator2::step() {
-	
 	AHModule::step();
 
 	// Wait a few steps for the inputs to flow through Rack
@@ -891,7 +979,6 @@ void Arpeggiator2::step() {
 	outputs[GATE_OUTPUT].value = gatesOn ? 10.0 : 0.0;
 	outputs[EOS_OUTPUT].value = sPulse ? 10.0 : 0.0;
 	outputs[EOC_OUTPUT].value = cPulse ? 10.0 : 0.0;
-	
 }
 
 struct Arpeggiator2Display : TransparentWidget {
